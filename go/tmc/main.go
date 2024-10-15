@@ -56,10 +56,14 @@ func calc(args []string) (time.Duration, error) {
 			time.Duration(t.Second())*time.Second +
 			time.Duration(t.Nanosecond())*time.Nanosecond
 
-		if i%2 == 0 || args[i-1] == "+" {
-			result += duration
-		} else if args[i-1] == "-" {
-			result -= duration
+		if i == 0 {
+			result = duration
+		} else {
+			if args[i-1] == "+" {
+				result += duration
+			} else if i > 1 && args[i-1] == "-" {
+				result -= duration
+			}
 		}
 	}
 
