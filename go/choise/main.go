@@ -11,6 +11,7 @@ import (
 func main() {
 	args := os.Args[1:]
 	if len(args) == 0 {
+		fmt.Println("Usage: choise <arg1> <arg2> ... <argN>")
 		os.Exit(1)
 	}
 
